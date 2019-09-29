@@ -6,13 +6,11 @@ os.system('modprobe w1-therm')
 device_folder = glob.glob('/sys/bus/w1/devices/10*')
 device_file = [device_folder[0] + '/w1_slave']
 
-
 def read_temp_raw():
     f_1 = open(device_file[0], 'r')
     lines_1 = f_1.readlines()
     f_1.close()
     return lines_1
-
 
 def read_temp():
     lines = read_temp_raw()
@@ -23,19 +21,13 @@ def read_temp():
     temp = float(lines[1][equals_pos[0]+2:])/1000
     return temp
 
-
-temp= ""
 temp = read_temp_raw()
 outputmain= temp[1][-6:-4]
 finaloutput= outputmain
 print finaloutput
 
-f= (finaloutput)
-for line in f:
-    temp= f
-
-event = (temp)
-apikey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+event = (finaloutput)
+apikey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 url = "https://maker.ifttt.com/trigger/%s/with/key/%s" % (event, apikey)
 headers = {}
