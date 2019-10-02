@@ -3,7 +3,7 @@ import os, glob, time, sys, datetime, requests
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
-device_folder = glob.glob('/sys/bus/w1/devices/10*')
+device_folder = glob.glob('/sys/bus/w1/devices/XXXXXXXXXXXXX*')
 device_file = [device_folder[0] + '/w1_slave']
 
 def read_temp_raw():
